@@ -10,6 +10,20 @@
 JavaScript is considered a lightweight language due to its low CPU usage, minimalist syntax, and ease of implementation. With no explicit data types and a syntax similar to C++ and Java, it’s easy to learn and runs efficiently in browsers. Unlike heavier languages like Dart or Java, JavaScript, especially with Node.js, performs faster and uses fewer resources. While it has fewer built-in libraries, this makes it more flexible, though external libraries are often needed for advanced functionality. JavaScript’s efficiency and simplicity make it a top choice for web development.
 
 
+```bash
+<html>
+<head></head>
+<body>
+    <h1>Check the console for the message!</h1>
+    <script>
+        // This is our first JavaScript program
+        console.log("Hello, World!");
+    </script>
+</body>
+</html>
+```
+
+
 ### Why JavaScript is known as a lightweight programming language ?
 JavaScript is considered a lightweight language due to its low CPU usage, minimalist syntax, and ease of implementation. With no explicit data types and a syntax similar to C++ and Java, it’s easy to learn and runs efficiently in browsers. Unlike heavier languages like Dart or Java, JavaScript, especially with Node.js, performs faster and uses fewer resources. While it has fewer built-in libraries, this makes it more flexible, though external libraries are often needed for advanced functionality. JavaScript’s efficiency and simplicity make it a top choice for web development.
 
