@@ -9,3 +9,18 @@ JavaScript is a programming language used to create dynamic content for websites
 ![Alt Text](image1.webp)
 
 
+### **Hello World Program**
+This JavaScript Compiler is completely free and easy to use. Here, you can practice various JS Exercises.
+
+```bash 
+console.log("Hello World!");
+```
+
+### **Why to learn JavaScript?**
+* Versatility: JavaScript can be used to develop (using ElectronJS) websites, games (Using Phaser and Three.js), mobile apps (using React Native), and more.
+* Client Side: JavaScript is the main language for client-side logic and is supported by almost all browsers. There is a big list of frameworks and libraries like React JS, Angular JS, and Vue JS.
+* Server-Side: With runtime environments like Node.js and Frameworks like Express.js, JavaScript is now widely used for building server-side applications.
+* Machine Learning: With Libraries like Tensorflow.JS, JavaScript can be used to develop and train machine learning models. Please refer to ML in JS for details.
+
+
+
