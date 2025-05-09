@@ -23,4 +23,4 @@ console.log("Hello World!");
 * Machine Learning: With Libraries like Tensorflow.JS, JavaScript can be used to develop and train machine learning models. Please refer to ML in JS for details.
 
 
-
+![Alt Text](image2.webp)
