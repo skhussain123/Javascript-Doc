@@ -71,3 +71,5 @@ JavaScript is one of the most widely used programming languages, known for its f
 * Extensive Libraries and Frameworks: JavaScript has a rich ecosystem of libraries and frameworks such as React, Angular, and Vue.js, which simplify and speed up development for both front-end and back-end projects.
 * Cross-Platform: JavaScript is supported across all modern browsers, allowing the same code to run seamlessly on different operating systems and platforms.
 * Large Community Support: JavaScript benefits from a large, active developer community that contributes to its growth. With numerous resources available, finding help or solutions is always easy.
+
+
