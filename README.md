@@ -24,3 +24,21 @@ console.log("Hello World!");
 
 
 ![Alt Text](image2.webp)
+
+
+## List of Companies Using JavaScript
+
+These are some popular companies that use JavaScript in their workflow.
+
+| Company   | Description |
+|-----------|-------------|
+| **Google** | Google uses JavaScript extensively in its web services, including Gmail and Google Maps. |
+| **Facebook** | Facebook’s front-end is built with React, a JavaScript library, for a dynamic user interface. |
+| **Netflix** | Netflix uses JavaScript for their interactive user interface and in their backend services. |
+| **Airbnb** | Airbnb relies on JavaScript, using Node.js for scalable back-end development and React for the front end. |
+| **LinkedIn** | LinkedIn uses JavaScript for both front-end and back-end development, enabling real-time interaction. |
+| **Uber** | JavaScript is used by Uber for real-time tracking and routing, employing both front-end and back-end technologies. |
+| **Twitter** | Twitter uses JavaScript for handling its dynamic feeds and providing a seamless user experience. |
+| **PayPal** | PayPal’s front-end is powered by JavaScript, offering smooth, interactive user experiences. |
+| **eBay** | eBay uses JavaScript to build their responsive, dynamic web applications and enhance user interactions. |
+| **Slack** | Slack's web client and several of its real-time communication features are powered by JavaScript. |
