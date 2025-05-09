@@ -73,3 +73,18 @@ JavaScript is one of the most widely used programming languages, known for its f
 * Large Community Support: JavaScript benefits from a large, active developer community that contributes to its growth. With numerous resources available, finding help or solutions is always easy.
 
 
+
+### Libraries
+Libraries provide pre-built solutions for common tasks. Developers can use these functions instead of writing code from scratch, saving valuable time. Here are a few popular libraries of JavaScript.
+
+* Frontend Libraries: React, Preact, Lodash, Moment.js, jQuery, Axios
+* Backend Libraries: Socket.io, JWT, Bcrypt, Passport.js, CORS
+
+**Frameworks**
+Frameworks, offer a comprehensive structure for building applications. Here are a few popular frameworks of JavaScript.
+
+* Frontend Frameworks: Vue.js, Angular, Next.js, Nuxt.js, Gatsby, Remix
+* Backend Frameworks: Express.js, NestJS, Koa.js, Sails.js, Fastify
+* FullStack FrameWorks: Meteor.js, Next.js, Nuxt.js, RedwoodJS
+
+
