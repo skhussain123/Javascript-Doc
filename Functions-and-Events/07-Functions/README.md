@@ -147,6 +147,29 @@ function greet(name = "Guest") {
 greet(); // Hello, Guest
 ```
 
+### **Nested Functions**
+Functions defined within other functions are called nested functions. They have access to the variables of their parent function.
+```bash
+function outerFun(a) {
+    function innerFun(b) {
+        return a + b;
+    }
+    return innerFun;
+}
+
+const addTen = outerFun(10);
+console.log(addTen(5));
+
+output:
+15
+```
+
+## **Why Functions?**
+* Functions can be used multiple times, reducing redundancy.
+* Break down complex problems into manageable pieces.
+* Manage complexity by hiding implementation details.
+* Can call themselves to solve problems recursively.
+
 
 
 
