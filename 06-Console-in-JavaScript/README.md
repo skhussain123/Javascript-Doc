@@ -46,12 +46,11 @@ console.table() is a method that displays data in a structured table format, mak
 console.table([{name: "Amit", age: 30}, {name: "Jatin", age: 25}]);
 ```
 
-┌─────────┬─────────┬─────┐
-│ (index) │  name   │ age │
-├─────────┼─────────┼─────┤
-│    0    │ 'Amit'  │ 30  │
-│    1    │ 'Jatin' │ 25  │
-└─────────┴─────────┴─────┘
+| Index |  Name | Age |
+| :---: | :---: | :-: |
+|   0   |  Amit |  30 |
+|   1   | Jatin |  25 |
+
 
 ### **6. console .time() & console .timeEnd()**
 The console.time() method starts a timer with a specified label, and console.timeEnd() stops the timer and logs the elapsed time in milliseconds. These methods are useful for measuring how long a block of code takes to execute.
