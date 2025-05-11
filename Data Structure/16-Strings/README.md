@@ -34,7 +34,7 @@ substring() returns the part of the given string from the start index to the end
 * split() splits the string into an array of sub-strings. This method returns an array. This method accepts a single parameter character on which you want to split the string.
 
 
-
+## Most Common Methods
 ### 1. slice()
 slice() extracts a part of the string based on the given stating-index and ending-index and returns a new string.
 ```bash
