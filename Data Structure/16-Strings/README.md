@@ -333,3 +333,215 @@ output:
 [ 'stands', 'for', 'GeeksforGeeks' ]
 
 ```
+
+
+## JavaScript String Search
+### JavaScript String indexOf()
+The indexOf() method returns the index (position) of the first occurrence of a string in a string, or it returns -1 if the string is not found:
+```bash
+let text = "Please locate where 'locate' occurs!";
+let index = text.indexOf("locate");
+
+output:
+7
+```
+
+### JavaScript String lastIndexOf()
+The lastIndexOf() method returns the index of the last occurrence of a specified text in a string:
+```bash
+let text = "Please locate where 'locate' occurs!";
+let index = text.lastIndexOf("locate");
+
+output:
+21
+```
+
+**Both indexOf(), and lastIndexOf() return -1 if the text is not found:**
+```bash
+let text = "Please locate where 'locate' occurs!";
+let index = text.lastIndexOf("John");
+
+output:
+-1
+```
+
+Both methods accept a second parameter as the starting position for the search:
+```bash
+let text = "Please locate where 'locate' occurs!";
+let index = text.indexOf("locate", 15);
+
+output:
+21
+
+```
+
+The lastIndexOf() methods searches backwards (from the end to the beginning), meaning: if the second parameter is 15, the search starts at position 15, and searches to the beginning of the string.
+```bash
+let text = "Please locate where 'locate' occurs!";
+text.lastIndexOf("locate", 15);
+
+output:
+7
+
+```
+
+### JavaScript String search()
+The search() method searches a string for a string (or a regular expression) and returns the position of the match:
+```bash
+let text = "Please locate where 'locate' occurs!";
+text.search("locate");
+
+output:
+7
+
+```
+
+```bash
+let text = "Please locate where 'locate' occurs!";
+text.search(/locate/);
+
+output:
+7
+
+```
+
+The two methods are NOT equal. These are the differences:
+
+* The search() method cannot take a second start position argument.
+* The indexOf() method cannot take powerful search values (regular expressions).
+
+
+### JavaScript String match()
+The match() method returns an array containing the results of matching a string against a string (or a regular expression).
+```bash
+let text = "The rain in SPAIN stays mainly in the plain";
+text.match("ain");
+
+output:
+1 ain
+
+```
+
+```bash
+let text = "The rain in SPAIN stays mainly in the plain";
+text.match(/ain/);
+
+output:
+1 ain
+
+```
+
+```bash
+let text = "The rain in SPAIN stays mainly in the plain";
+text.match(/ain/g);
+
+output:
+3 ain,ain,ain
+
+```
+
+```bash
+let text = "The rain in SPAIN stays mainly in the plain";
+text.match(/ain/gi);
+
+output:
+4 ain,AIN,ain,ain
+
+```
+
+### JavaScript String matchAll()
+The matchAll() method returns an iterator containing the results of matching a string against a string (or a regular expression).
+
+```bash
+let text = "I love cats. Cats are very easy to love. Cats are very popular."
+const iterator = text.matchAll("Cats");
+
+output:
+Cats,Cats
+```
+
+
+```bash
+const iterator = text.matchAll(/Cats/gi);
+
+output:
+cats,Cats,Cats
+```
+
+### JavaScript String includes()
+The includes() method returns true if a string contains a specified value.
+
+Otherwise it returns false.
+```bash
+let text = "Hello world, welcome to the universe.";
+text.includes("world");
+
+output:
+true
+```
+
+```bash
+let text = "Hello world, welcome to the universe.";
+text.includes("world", 12);
+
+output:
+false
+```
+
+### JavaScript String startsWith()
+The startsWith() method returns true if a string begins with a specified value.
+
+Otherwise it returns false:
+
+```bash
+let text = "Hello world, welcome to the universe.";
+text.startsWith("Hello");
+
+output:
+true
+```
+
+```bash
+let text = "Hello world, welcome to the universe.";
+text.startsWith("world")
+
+output:
+false
+
+```
+
+```bash
+let text = "Hello world, welcome to the universe.";
+text.startsWith("world", 5)
+
+output:
+false
+```
+
+```bash
+let text = "Hello world, welcome to the universe.";
+text.startsWith("world", 6)
+
+output:
+true
+```
+
+## JavaScript String endsWith()
+The endsWith() method returns true if a string ends with a specified value.
+
+Otherwise it returns false:
+```bash
+let text = "John Doe";
+text.endsWith("Doe");
+
+output:
+true
+```
+
+```bash
+let text = "Hello world, welcome to the universe.";
+text.endsWith("world", 11);
+
+output:
+true
+```
