@@ -333,3 +333,68 @@ A promise in JavaScript can be in one of three states, which determine how it be
 * Rejected: This state represents that the asynchronous operation has failed, and the promise has rejected with a reason (error).
 
 ![Alt Text](Group-3.jpg)
+
+### Error Handling in Chaining
+```bash
+Promise.resolve(5)
+    .then((num) => {
+        console.log(`Value: ${num}`);
+        throw new Error("Something went wrong!");
+    })
+    .then((num) => {
+        console.log(`This won't run`);
+    })
+    .catch((error) => {
+        console.error(`Error: ${error.message}`);
+    });
+
+output:
+Value: 5
+Error: Something went wrong!
+
+```   
+
+### Chaining with Dependent Tasks
+```bash
+function fetchUser(userId) {
+    return Promise.resolve({ id: userId, name: "GFG" });
+}
+
+function fetchOrders(user) {
+    return Promise.resolve([{ orderId: 1, userId: user.id }]);
+}
+
+fetchUser(101)
+    .then((user) => {
+        console.log(`User: ${user.name}`);
+        return fetchOrders(user);
+    })
+    .then((orders) => {
+        console.log(`Orders: ${orders.length}`);
+    })
+    .catch((error) => console.error(error));
+
+output:
+User: GFG
+Orders: 1
+
+ ```   
+
+ ### Advanced Usage: Parallel and Sequential Tasks in a Chain
+You can combine Promise.all() with chaining for efficient execution.
+```bash
+Promise.all([
+    Promise.resolve("Task 1 done"),
+    Promise.resolve("Task 2 done")
+])
+    .then(([result1, result2]) => {
+        console.log(result1, result2);
+        return Promise.resolve("Final Task done");
+    })
+    .then((finalResult) => console.log(finalResult))
+    .catch((error) => console.error(error));
+
+output:
+Task 1 done Task 2 done
+Final Task done
+```
