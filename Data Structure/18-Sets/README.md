@@ -22,7 +22,7 @@ console.log(mySet); // Set(2) {1, 2}
 | `size`          | Get total unique items | `set.size`                             |
 | `forEach()`     | Loop through set       | `set.forEach(val => console.log(val))` |
 
-### 4. Loop Through a Set
+### 2. Loop Through a Set
 ```bash
 const fruits = new Set(["apple", "banana", "mango"]);
 
@@ -31,7 +31,7 @@ for (let fruit of fruits) {
 }
 ```
 
-### 5. Convert Set to Array
+### 3. Convert Set to Array
 ```bash
 const set = new Set([1, 2, 3]);
 const arr = [...set];
