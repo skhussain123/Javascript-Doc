@@ -210,3 +210,73 @@ const arr = [1, 2];
 arr.push(3, 4);
 console.log(arr); // [1, 2, 3, 4]
 ```
+
+
+## JavaScript Array Search
+
+| Method            | Returns              | What it Finds                  |
+| ----------------- | -------------------- | ------------------------------ |
+| `find()`          | First matching value | Based on a condition           |
+| `findIndex()`     | Index of first match | Based on a condition           |
+| `findLast()`      | Last matching value  | Based on a condition           |
+| `findLastIndex()` | Index of last match  | Based on a condition           |
+| `indexOf()`       | Index of value       | First match of a given value   |
+| `lastIndexOf()`   | Index of value       | Last match of a given value    |
+| `includes()`      | `true` or `false`    | If a value exists in the array |
+
+### 1. find()
+🔍 Finds the first element that matches a condition.
+```bash
+const numbers = [10, 20, 30, 40];
+const result = numbers.find(num => num > 25);
+console.log(result); // 30
+
+```
+
+### 2. findIndex()
+🔢 Finds the index of the first element that matches a condition.
+```bash
+const numbers = [10, 20, 30, 40];
+const index = numbers.findIndex(num => num > 25);
+console.log(index); // 2
+```
+
+### 3. findLast() (New ES2023)
+🔍 Finds the last element that matches a condition.
+```bash
+const numbers = [10, 20, 30, 40];
+const result = numbers.findLast(num => num > 15);
+console.log(result); // 40
+```
+
+### 4. findLastIndex() (New ES2023)
+🔢 Finds the index of the last matching element.
+```bash
+const numbers = [10, 20, 30, 40];
+const index = numbers.findLastIndex(num => num > 15);
+console.log(index); // 3
+
+```
+
+### 5. indexOf()
+🔢 Returns the first index of a specific value.
+```bash
+const fruits = ["apple", "banana", "mango", "banana"];
+console.log(fruits.indexOf("banana")); // 1
+```
+
+### 6. lastIndexOf()
+🔢 Returns the last index of a specific value.
+```bash
+const fruits = ["apple", "banana", "mango", "banana"];
+console.log(fruits.lastIndexOf("banana")); // 3
+```
+
+### 7. includes()
+✅ Checks if a value exists in the array (true/false).
+```bash
+const fruits = ["apple", "banana", "mango"];
+console.log(fruits.includes("banana")); // true
+console.log(fruits.includes("grape"));  // false
+
+```
