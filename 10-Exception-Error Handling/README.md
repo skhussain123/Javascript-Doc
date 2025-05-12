@@ -171,3 +171,52 @@ Error fetching data: fetch failed
 2. Use finally for Cleanup: Ensure resources are released or closed.
 3. Avoid Silent Failures: Always log or handle errors appropriately.
 4. Use Custom Errors: Provide meaningful error messages.
+
+
+
+# Debugging in JavaScript
+Debugging is the process of testing, finding, and reducing bugs (errors) in computer programs. It involves:
+
+1. Identifying errors (syntax, runtime, or logical errors).
+2. Using debugging tools to analyze code execution.
+3. Implementing fixes and verifying correctness.
+
+### 1. Built-in Debugging Tools
+Modern browsers provide built-in JavaScript debuggers, accessible via Developer Tools. Debuggers can be turned on and off, forcing errors to be reported. They allow setting breakpoints and examining variables while code executes.
+
+### Steps to Activate Debugging:
+
+Chrome: Open “More tools” → “Developer tools” → Select “Console”.
+Firefox: Open “Web Developer” → “Web Console”.
+Edge: Open “Developer Tools” → Select “Console”.
+Opera: Open “Developer” → “Developer tools” → “Console”.
+Safari: Enable “Show Develop menu in menu bar” under Preferences, then select “Show Error Console”.
+
+### 2. Using console.log()
+One of the simplest debugging techniques is logging messages to the console.
+
+```bash
+let x = 10;
+console.log("Value of x:", x);
+```
+
+### 3. Setting Breakpoints
+Breakpoints stop execution at specific lines, allowing variable inspection.
+
+Open DevTools (F12 or Ctrl+Shift+I).
+Navigate to the “Sources” tab.
+Click on line numbers to set breakpoints.
+Resume execution using the play button after analysis.
+
+### 4. Using the debugger Keyword
+The debugger statement stops execution and opens debugging tools.
+
+```bash
+function test() {
+    let n = 42;
+    debugger; // Execution pauses here
+    console.log(n);
+}
+test();
+
+```
