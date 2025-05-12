@@ -82,3 +82,131 @@ console.log(fruits); // ["Apple", "Orange", "Mango"]
 | `pop()`        | Removes the **last** element and returns it                                     | `arr.pop()`                | Modifies array, returns last item         |
 | `push()`       | Adds one or more elements **to the end** of the array                           | `arr.push("Z")`            | Adds to end, returns new length           |
 
+
+### 1. shift()
+Removes the first element from the array.
+```bash
+const fruits = ["Apple", "Banana", "Mango"];
+fruits.shift(); // Removes "Apple"
+console.log(fruits); // ["Banana", "Mango"]
+
+```
+
+### 2. unshift()
+Adds one or more elements to the beginning of the array.
+```bash
+const fruits = ["Banana", "Mango"];
+fruits.unshift("Apple");
+console.log(fruits); // ["Apple", "Banana", "Mango"]
+
+```
+
+### 3. delete
+Deletes a specific element by index (leaves undefined at that index).
+```bash
+const fruits = ["Apple", "Banana", "Mango"];
+delete fruits[1];
+console.log(fruits); // ["Apple", undefined, "Mango"]
+```
+
+### 4. concat()
+Merges two or more arrays into a new array.
+```bash
+const arr1 = [1, 2];
+const arr2 = [3, 4];
+const result = arr1.concat(arr2);
+console.log(result); // [1, 2, 3, 4]
+```
+
+### 5. copyWithin()
+Copies part of the array within itself.
+```bash
+const arr = [1, 2, 3, 4];
+arr.copyWithin(2, 0); // Copy elements from index 0 to index 2
+console.log(arr); // [1, 2, 1, 2]
+```
+
+### 6. flat()
+Flattens a nested array.
+```bash
+const arr = [1, [2, [3, 4]]];
+const flatArr = arr.flat(2);
+console.log(flatArr); // [1, 2, 3, 4]
+
+```
+
+### 7. splice()
+Adds/removes items in the array.
+```bash
+const arr = ["a", "b", "c", "d"];
+arr.splice(1, 2, "x", "y"); // Remove 2 items from index 1 and add "x", "y"
+console.log(arr); // ["a", "x", "y", "d"]
+```
+
+### 8. toSpliced() (New ES2023)
+Returns a new array after splice operation (original is not changed).
+```bash
+const arr = ["a", "b", "c", "d"];
+const newArr = arr.toSpliced(1, 2, "x", "y");
+console.log(newArr); // ["a", "x", "y", "d"]
+console.log(arr);    // ["a", "b", "c", "d"]  ← original remains unchanged
+
+```
+
+### 9. slice()
+Returns a portion of the array.
+```bash
+const arr = ["a", "b", "c", "d"];
+const sliced = arr.slice(1, 3);
+console.log(sliced); // ["b", "c"]
+
+```
+
+### 10. length
+Returns the number of elements in the array.
+```bash
+const arr = [10, 20, 30];
+console.log(arr.length); // 3
+
+```
+
+### 11. toString()
+Converts array to a comma-separated string.
+```bash
+const arr = [1, 2, 3];
+console.log(arr.toString()); // "1,2,3"
+
+```
+
+### 12. at()
+Returns element at a given index, supports negative indexing.
+```bash
+const arr = ["a", "b", "c"];
+console.log(arr.at(-1)); // "c" (last item)
+
+```
+
+### 13. join()
+Joins array items into a string with custom separator.
+```bash
+const arr = ["a", "b", "c"];
+console.log(arr.join(" - ")); // "a - b - c"
+
+```
+
+### 14. pop()
+Removes the last element and returns it.
+```bash
+const arr = [1, 2, 3];
+arr.pop(); // Removes 3
+console.log(arr); // [1, 2]
+
+```
+
+### 15. push()
+Adds one or more items to the end of the array.
+```bash
+const arr = [1, 2];
+arr.push(3, 4);
+console.log(arr); // [1, 2, 3, 4]
+```
