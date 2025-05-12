@@ -153,6 +153,64 @@ Error fetching data: fetch failed
 
 ```
 
+### Create Your Own Custom Error Class
+```bash
+class ValidationError extends Error {
+  constructor(message) {
+    super(message); // Call parent constructor
+    this.name = "ValidationError"; // Custom error name
+  }
+}
+
+try {
+  let username = "";
+  if (username === "") {
+    throw new ValidationError("Username cannot be empty");
+  }
+} catch (err) {
+  console.log(err.name);    // "ValidationError"
+  console.log(err.message); // "Username cannot be empty"
+}
+
+
+```
+### Multiple Errors Example
+```bash
+class InputError extends Error {
+  constructor(message) {
+    super(message);
+    this.name = "InputError";
+  }
+}
+
+class DatabaseError extends Error {
+  constructor(message) {
+    super(message);
+    this.name = "DatabaseError";
+  }
+}
+
+try {
+  let input = "";
+  if (!input) throw new InputError("Missing user input");
+
+  // Simulate DB error
+  let dbStatus = false;
+  if (!dbStatus) throw new DatabaseError("Database not connected");
+
+} catch (err) {
+  if (err instanceof InputError) {
+    console.log("Input Issue:", err.message);
+  } else if (err instanceof DatabaseError) {
+    console.log("DB Issue:", err.message);
+  } else {
+    console.log("Unknown Error:", err.message);
+  }
+}
+
+```
+
+
 **In this example**
 
 1. The fetchData() function uses async to allow asynchronous operations. It tries to fetch data from the URL “https://api.example.com/data” using the fetch() function.
