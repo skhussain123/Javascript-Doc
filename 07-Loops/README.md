@@ -77,3 +77,8 @@ for (let key in person) {
 
 ```
 Objects ke andar ki properties ko access karna.
+
+
+### JavaScript Iterables
+Iterables JavaScript mein woh values hoti hain jin par aap for...of loop chala sakte ho. Ye ek special type ke object hote hain jo elements ka sequence provide karte hain — jaise arrays, strings, maps, sets, etc.
+

@@ -280,3 +280,242 @@ console.log(fruits.includes("banana")); // true
 console.log(fruits.includes("grape"));  // false
 
 ```
+
+
+# JavaScript Array Sorting Methods 
+| Method           | Description                               | Mutates Original? |
+| ---------------- | ----------------------------------------- | ----------------- |
+| `sort()`         | Sorts array alphabetically or numerically | ✅ Yes             |
+| `reverse()`      | Reverses array                            | ✅ Yes             |
+| `toSorted()`     | Sorted copy (ES2023)                      | ❌ No              |
+| `toReversed()`   | Reversed copy (ES2023)                    | ❌ No              |
+| `Math.min()`     | Gets smallest number                      | ❌ No              |
+| `Math.max()`     | Gets largest number                       | ❌ No              |
+| `sort(a-b)`      | Numeric sort                              | ✅ Yes             |
+| `sort(()=>rand)` | Random sort (not guaranteed)              | ✅ Yes             |
+| Custom loop      | Home-made min/max                         | ✅ N/A             |
+
+
+### 🔹 1. sort()
+Sorts array alphabetically (by default) or numerically (with custom logic).
+```bash
+const fruits = ["Banana", "Apple", "Mango"];
+fruits.sort();
+console.log(fruits); // ["Apple", "Banana", "Mango"]
+
+```
+**Numeric sort (default fails!):**
+```bash
+const nums = [10, 2, 30];
+nums.sort(); // Incorrect result: [10, 2, 30] → treated as strings
+```
+
+**Correct numeric sort:**
+```bash
+nums.sort((a, b) => a - b);
+console.log(nums); // [2, 10, 30]
+```
+
+### 🔹 2. reverse()
+Reverses the array in place.
+```bash
+const arr = [1, 2, 3];
+arr.reverse();
+console.log(arr); // [3, 2, 1]
+
+```
+
+### 🔹 3. toSorted() (✅ ES2023)
+Returns a new sorted array, original stays unchanged.
+```bash
+const nums = [5, 3, 1];
+const sorted = nums.toSorted((a, b) => a - b);
+console.log(sorted);  // [1, 3, 5]
+console.log(nums);    // [5, 3, 1]
+```
+
+### 🔹 4. toReversed() (✅ ES2023)
+Returns a new reversed array without changing the original.
+```bash
+const arr = [1, 2, 3];
+const reversed = arr.toReversed();
+console.log(reversed); // [3, 2, 1]
+console.log(arr);      // [1, 2, 3]
+```
+
+### 5. Sorting Objects Numerically
+```bash
+const people = [
+  { name: "Ali", age: 30 },
+  { name: "Sara", age: 22 },
+  { name: "Zain", age: 27 }
+];
+
+people.sort((a, b) => a.age - b.age);
+console.log(people); // Sorted by age: Sara, Zain, Ali
+```
+
+###  6. Random Sort (⚠️ Not 100% reliable)
+```bash
+const arr = [1, 2, 3, 4, 5];
+arr.sort(() => 0.5 - Math.random());
+console.log(arr); // Random order
+```
+
+### 7. Math.min() and Math.max()
+Finds smallest/largest numbers.
+```bash
+const nums = [10, 5, 3, 99];
+console.log(Math.min(...nums)); // 3
+console.log(Math.max(...nums)); // 99
+```
+
+### 🔹 8. Home Made min() and max()
+Manually find the minimum and maximum without using Math methods.
+```bash
+const nums = [10, 5, 3, 99];
+
+// Homemade Min
+let min = nums[0];
+for (let num of nums) {
+  if (num < min) min = num;
+}
+console.log(min); // 3
+
+// Homemade Max
+let max = nums[0];
+for (let num of nums) {
+  if (num > max) max = num;
+}
+console.log(max); // 99
+```
+
+# JavaScript Array Iteration Methods
+| Method          | Description                               | Returns New Array? |
+| --------------- | ----------------------------------------- | ------------------ |
+| `forEach()`     | Loops over items                          | ❌ No               |
+| `map()`         | Transforms each item                      | ✅ Yes              |
+| `flatMap()`     | Map + flatten                             | ✅ Yes              |
+| `filter()`      | Keeps items that pass test                | ✅ Yes              |
+| `reduce()`      | Reduces to a single value (left to right) | ❌ No               |
+| `reduceRight()` | Reduces right to left                     | ❌ No               |
+| `every()`       | Checks if **all** match condition         | ❌ No (true/false)  |
+| `some()`        | Checks if **any** match condition         | ❌ No (true/false)  |
+| `from()`        | Converts iterable to array                | ✅ Yes              |
+| `keys()`        | Iterator of indexes                       | ❌ No               |
+| `entries()`     | Iterator of \[index, value] pairs         | ❌ No               |
+| `with()`        | Replace 1 item, return new array          | ✅ Yes (ES2023)     |
+| `...spread`     | Expands elements                          | ✅ Yes              |
+
+
+### 🔹 1. forEach()
+Loops through each element of the array.
+```bash
+const nums = [1, 2, 3];
+nums.forEach((num, index) => {
+  console.log(`Index ${index}: ${num}`);
+});
+
+```
+
+### 🔹 2. map()
+Creates a new array by transforming each element.
+```bash
+const nums = [1, 2, 3];
+const doubled = nums.map(num => num * 2);
+console.log(doubled); // [2, 4, 6]
+```
+
+### 🔹 3. flatMap()
+Maps each element and then flattens one level.
+```bash
+const arr = ["one", "two"];
+const result = arr.flatMap(word => word.split(""));
+console.log(result); // ["o", "n", "e", "t", "w", "o"]
+```
+
+### 🔹 4. filter()
+Creates a new array with only elements that pass a test.
+```bash
+const nums = [10, 20, 30];
+const filtered = nums.filter(num => num > 15);
+console.log(filtered); // [20, 30]
+```
+
+### 🔹 5. reduce()
+Reduces the array to a single value (left to right).
+```bash
+const nums = [1, 2, 3, 4];
+const sum = nums.reduce((acc, val) => acc + val, 0);
+console.log(sum); // 10
+```
+
+### 🔹 6. reduceRight()
+Same as reduce() but starts from the right side.
+```bash
+const nums = [1, 2, 3, 4];
+const result = nums.reduceRight((acc, val) => acc - val);
+console.log(result); // (((4 - 3) - 2) - 1) = -2
+```
+
+### 🔹 7. every()
+Checks if all elements pass a test → returns true or false.
+```bash
+const nums = [10, 20, 30];
+const allAbove5 = nums.every(num => num > 5);
+console.log(allAbove5); // true
+```
+
+### 🔹 8. some()
+Checks if any one element passes the test.
+```bash
+const nums = [1, 2, 3];
+const hasEven = nums.some(num => num % 2 === 0);
+console.log(hasEven); // true
+```
+
+### 🔹 9. from()
+Creates an array from any iterable (like a string).
+```bash
+const str = "hello";
+const arr = Array.from(str);
+console.log(arr); // ["h", "e", "l", "l", "o"]
+```
+
+### 🔹 10. keys()
+Returns an iterator of array indices.
+```bash
+const fruits = ["Apple", "Banana"];
+const keys = fruits.keys();
+for (let key of keys) {
+  console.log(key); // 0, 1
+}
+
+```
+
+### 🔹 11. entries()
+Returns an iterator of [index, value] pairs.
+```bash
+const fruits = ["Apple", "Banana"];
+for (let [index, value] of fruits.entries()) {
+  console.log(index, value); // 0 "Apple", 1 "Banana"
+}
+
+```
+
+### 🔹 12. with() (ES2023)
+Returns a new array with one element replaced (original is not changed).
+```bash
+const nums = [1, 2, 3];
+const newArr = nums.with(1, 99); // replace index 1 with 99
+console.log(newArr); // [1, 99, 3]
+
+```
+
+### 13. Spread Syntax ...
+Spreads array elements individually.
+```bash
+const arr1 = [1, 2];
+const arr2 = [...arr1, 3, 4];
+console.log(arr2); // [1, 2, 3, 4]
+```
