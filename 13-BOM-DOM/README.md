@@ -95,3 +95,124 @@ The JavaScript HTML DOM is an interface that allows programs to interact with we
 ![Alt Text](DOM-Tree1.webp)
 
 ![Alt Text](DOM-Tree-2.webp)
+
+
+## Accessing Elements in the DOM
+
+### getElementById()
+Retrieves an element by its id.
+
+```bash
+let heading = document.getElementById("title");
+console.log(heading.textContent);
+```
+
+### getElementsByClassName()
+Returns a collection of elements with a specified class.
+
+```bash
+let items = document.getElementsByClassName("list-item");
+console.log(items[0].textContent);
+```
+
+### getElementsByTagName()
+Selects elements by their tag name.
+
+```bash
+let paragraphs = document.getElementsByTagName("p");
+console.log(paragraphs.length);
+```
+
+### querySelector()
+Returns the first element matching a CSS selector.
+
+```bash
+let firstParagraph = document.querySelector("p");
+console.log(firstParagraph.textContent);
+```
+
+### querySelectorAll()
+Returns all elements matching a CSS selector.
+
+```bash
+let allParagraphs = document.querySelectorAll("p");
+allParagraphs.forEach(p => console.log(p.textContent));
+```
+
+## Modifying the DOM
+### Changing Content
+You can modify the content of an element using textContent or innerHTML.
+
+```bash
+document.getElementById("title").textContent = "New Heading";
+document.getElementById("content").innerHTML = "<b>Updated Content</b>";
+```
+
+### Changing Attributes
+You can modify attributes like src, href, alt, etc.
+
+```bash
+document.getElementById("myImage").src = "new-image.jpg";
+```
+
+### Adding and Removing Elements
+Create an element:
+
+```bash
+let newPara = document.createElement("p");
+newPara.textContent = "This is a new paragraph.";
+document.body.appendChild(newPara);
+```
+
+### Remove an element
+
+```bash
+let oldPara = document.getElementById("removeMe");
+oldPara.remove();
+```
+
+## Event Handling in the DOM
+JavaScript allows us to handle events such as clicks, keypresses, mouse movements, etc.
+
+
+### Adding an Event Listener
+
+```bash
+document.getElementById("btn").addEventListener("click", function() { 
+   alert("Button Clicked!");
+});
+```
+
+
+### Removing an Event Listener
+
+```bash
+function sayHello() { 
+   console.log("Hello!");
+}
+let btn = document.getElementById("btn");
+btn.addEventListener("click", sayHello);
+btn.removeEventListener("click", sayHello);
+```
+
+### Event Object
+The event object provides details about the event.
+
+```bash
+document.getElementById("inputField").addEventListener("keyup", function(event) {
+   console.log("Key pressed: ", event.key);
+});
+```
+
+
+### Traversing the DOM
+JavaScript provides properties to navigate through the DOM tree.
+
+1. parentNode: Gets the parent element.
+2. children: Gets all child elements.
+3. firstChild / lastChild: Gets the first/last child.
+4. nextSibling / previousSibling: Gets the next/previous sibling.
+
+**Example:**
+let parent = document.getElementById("myDiv").parentNode;
+console.log(parent.tagName);
