@@ -94,4 +94,4 @@ The JavaScript HTML DOM is an interface that allows programs to interact with we
 
 ![Alt Text](DOM-Tree1.webp)
 
-![Alt Text](DOM-Tree2.webp)
+![Alt Text](DOM-Tree-2.webp)
