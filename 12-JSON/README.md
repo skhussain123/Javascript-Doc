@@ -223,7 +223,6 @@ JSON is a language-independent, human-readable language used for its simplicity 
 }
 
 ```
-
 ### Differences Between YAML and JSON
 
 | **Aspect**             | **YAML**                                                  | **JSON**                                                  |

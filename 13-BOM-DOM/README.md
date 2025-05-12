@@ -70,3 +70,28 @@ Session History Navigation: The history object enables smooth navigation through
 5. Cookie Management: Using the document.cookie property, developers can set, retrieve, and delete cookies for session management.
 6. Event Handling and Timers: Functions like setTimeout and setInterval allow scheduling and periodic execution of tasks.s the current web address (URL) and allows changes within the Browser Object Model (BOM).
 
+
+# JavaScript HTML DOM
+The JavaScript HTML DOM (Document Object Model) is a powerful tool that represents the structure of an HTML document as a tree of objects. It allows JavaScript to interact with the structure and content of a webpage. By manipulating the DOM, you can update the content, structure, and styling of a page without requiring a page reload.
+
+### What is the JavaScript HTML DOM?
+The JavaScript HTML DOM is an interface that allows programs to interact with web pages.
+
+1. It provides a structured way to represent the document’s elements as objects.
+2. Using JavaScript, developers can access, modify, or delete HTML elements on the webpage, enabling dynamic content updates.
+
+### Features of JavaScript DOM
+1. Tree Structure: The DOM is organized like a family tree, with elements that have parent-child relationships. It is easy to find and change things based on their positions.
+2. Element Access: You can use different methods like getElementById, getElementsByTagName, and querySelector to access specific elements on a webpage
+
+
+### What is HTML DOM?
+1. HTML DOM stands for HTML Document Object Model.
+2. It is a programming interface for web documents.
+3. It represents the structure of an HTML document as a tree of objects.
+4. With the HTML DOM, JavaScript can access and manipulate all elements of an HTML document.
+
+
+![Alt Text](DOM-Tree1.webp)
+
+![Alt Text](DOM-Tree2.webp)
