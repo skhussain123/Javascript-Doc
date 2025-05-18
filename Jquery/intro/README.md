@@ -166,10 +166,6 @@ $(window).on("beforeunload", function () {
 
 ```
 
-
-
-
-
 ### DOM Manipulation
 ```bash
 $("#text").text("Hello");         // Set text
@@ -205,3 +201,322 @@ $("#item").prev();         // Previous sibling
 ```
 
 
+### Get Methods
+
+```bash
+$("#box").html("<b>Bold</b>"); // get html
+$("#text").text();  // get the text  
+$("#text").attr();  // get the attribute 
+$("#input").val();   get value from element  
+```
+
+
+
+### Set Methods
+
+```bash
+$("#box").html("<b>Bold</b>"); // set the new html
+$("#text").text('set the new text');
+$("#text").attr("class", "container");  // Set the attribute 
+$("#input").val();   get value from element  
+```
+
+
+
+### CSS Class Methods
+```bash
+$("#box").addClass("active");         // Add class
+$("#box").removeClass("active");      // Remove class
+$("#box").toggleClass("active");      // Toggle class
+```
+
+
+### CSS Methods
+```bash
+$("#box").css("background", "pink");   
+$("#box").css({"background":"pink", "color": "black"});   
+
+```
+
+### jQuery On & Off Method 
+```bash
+$("#btn").on("click", function () {
+  alert("Button clicked!");
+});
+
+
+$("#box").on("mouseenter mouseleave", function () {
+  $(this).toggleClass("highlight");
+});
+
+
+$("#list").on("click", "li", function () {
+  alert("List item clicked: " + $(this).text());
+});
+
+
+$("#btn").off("click"); // disables click event
+$("#list").off("click", "li");
+
+$("#btn").on("click", function () {
+  alert("Clicked once!");
+  $(this).off("click"); // disables further clicks
+});
+
+
+```
+
+
+### jQuery Append & Prepend Method
+```bash
+<ul id="list">
+  <li>Item 1</li>
+</ul>
+
+<script>
+  $("#list").append("<li>Item 2</li>");
+</script>
+
+
+<ul id="list">
+  <li>Item 1</li>
+  <li>Item 2</li> <!-- added at the end -->
+</ul>
+
+```
+
+```bash
+<ul id="list">
+  <li>Item 1</li>
+</ul>
+
+<script>
+  $("#list").prepend("<li>New First Item</li>");
+</script>
+
+
+<ul id="list">
+  <li>New First Item</li> <!-- added at the beginning -->
+  <li>Item 1</li>
+</ul>
+
+```
+
+
+### After & Before Method
+
+```bash
+<p id="text">Hello</p>
+
+<script>
+  $("#text").after("<span> World!</span>");
+</script>
+
+
+```
+
+```bash
+<p id="text">Hello</p>
+
+<script>
+  $("#text").before("<span>Welcome: </span>");
+</script>
+
+```
+
+### ✅ Difference vs .append() and .prepend()
+
+| Method       | Adds Content | Position           |
+| ------------ | ------------ | ------------------ |
+| `.append()`  | Inside       | At the end         |
+| `.prepend()` | Inside       | At the beginning   |
+| `.after()`   | Outside      | After the element  |
+| `.before()`  | Outside      | Before the element |
+
+
+### Empty & Remove Method
+
+```bash
+<div id="box">
+  <p>Hello</p>
+</div>
+
+<script>
+  $("#box").empty();
+</script>
+
+```
+
+```bash
+<div id="box">
+  <p>Hello</p>
+</div>
+
+<script>
+  $("#box").remove();
+</script>
+
+```
+```bash
+$("li").remove(".active"); // removes only <li> elements with class "active"
+
+```
+
+### AppendTo & PrependTo Method 
+```bash
+<div id="box1"></div>
+<div id="box2"></div>
+
+<script>
+  $("<p>Hello</p>").appendTo("#box1");
+</script>
+
+Output:
+<div id="box1">
+  <p>Hello</p>
+</div>
+
+
+```
+
+```bash
+<div id="container">
+  <p>Second</p>
+</div>
+
+<script>
+  $("<p>First</p>").prependTo("#container");
+</script>
+
+output:
+<div id="container">
+  <p>First</p>
+  <p>Second</p>
+</div>
+
+```
+
+### jQuery Clone Method
+
+```bash
+<div id="original">
+  <p>Hello World</p>
+</div>
+
+<script>
+  let copy = $("#original").clone();
+  $("body").append(copy); // add cloned element to the page
+</script>
+
+
+
+output:
+<div id="original">
+  <p>Hello World</p>
+</div>
+<div>
+  <p>Hello World</p>
+</div>
+
+```
+
+```bash
+<button id="btn">Click Me</button>
+<div id="box">Box</div>
+
+<script>
+  $("#btn").on("click", function () {
+    let clone = $("#box").clone();
+    $("body").append(clone);
+  });
+</script>
+```
+
+```bash
+<input type="text" id="input1" placeholder="Type something">
+
+<script>
+  $("#input1").on("keyup", function () {
+    console.log($(this).val());
+  });
+
+  let copy = $("#input1").clone(true); // copy with event
+  $("body").append(copy);
+</script>
+```
+
+### ReplaceWith & ReplaceAll Method
+
+```bash
+<p id="old">Old Text</p>
+
+<script>
+  $("#old").replaceWith("<h2>New Heading</h2>");
+</script>
+
+
+output:
+<h2>New Heading</h2>
+
+```
+
+```bash
+<p class="remove">Old</p>
+<p class="remove">Old</p>
+
+<script>
+  $("<h2>Replaced</h2>").replaceAll(".remove");
+</script>
+
+
+output:
+<h2>Replaced</h2>
+<h2>Replaced</h2>
+
+```
+
+| Method           | Replaces                | Used on...                   |
+| ---------------- | ----------------------- | ---------------------------- |
+| `.replaceWith()` | The **current** element | The selected element         |
+| `.replaceAll()`  | The **target** element  | The content replaces another |
+
+
+### Wrap & UnWrap Method
+```bash
+<p class="text">Hello World</p>
+
+<script>
+  $(".text").wrap("<div class='wrapper'></div>");
+</script>
+
+output:
+<div class="wrapper">
+  <p class="text">Hello World</p>
+</div>
+
+```
+
+```bash
+<div class="wrapper">
+  <p class="text">Hello World</p>
+</div>
+
+<script>
+  $(".text").unwrap();
+</script>
+
+
+output:
+<p class="text">Hello World</p>
+```
+
+**Toggle Wrap**
+```bash
+$("#btn-wrap").click(function () {
+  $(".item").wrap("<div class='box'></div>");
+});
+
+$("#btn-unwrap").click(function () {
+  $(".item").unwrap();
+});
+```
