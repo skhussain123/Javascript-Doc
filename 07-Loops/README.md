@@ -8,13 +8,15 @@ Instead of writing the same code again and again, loops let you automate repetit
 
 
 ### Types of Loops in JavaScript:
-| Loop Type    | Description                                      | Example Use           |
-| ------------ | ------------------------------------------------ | --------------------- |
-| `for`        | Runs for a fixed number of times                 | Counting, arrays      |
-| `while`      | Runs while a condition is true                   | Unknown repetitions   |
-| `do...while` | Runs at least once, then checks condition        | Menu prompt, retries  |
-| `for...of`   | Loops over iterable items like arrays or strings | Arrays, Sets, Strings |
-| `for...in`   | Loops over object keys                           | Objects               |
+| Loop Type    | Description                                      | Common Use Cases                |
+| ------------ | ------------------------------------------------ | ------------------------------- |
+| `for`        | Runs for a fixed number of times                 | Counting, arrays                |
+| `while`      | Runs while a condition is true                   | Unknown repetitions             |
+| `do...while` | Runs at least once, then checks the condition    | Menu prompts, retries           |
+| `for...of`   | Loops over iterable items like arrays or strings | Arrays, Sets, Strings           |
+| `for...in`   | Loops over object keys                           | Objects                         |
+| `forEach`    | Calls a function once for each array element     | Array iteration with a callback |
+
 
 
 ### 1. for Loop
@@ -67,7 +69,7 @@ for (let color of colors) {
 ```
 Arrays, Strings, Sets — jisme value chahiye har round me.
 
-### 5. 5. for...in Loop
+### 5. for...in Loop
 Kisi object ke keys (property names) ko loop karta hai.
 ```bash
 let person = { name: 'Ali', age: 25 };
@@ -77,6 +79,16 @@ for (let key in person) {
 
 ```
 Objects ke andar ki properties ko access karna.
+
+
+### 6. forEach
+```bash
+const numbers = [1, 2, 3];
+numbers.forEach(function(num) {
+  console.log(num);
+});
+
+```
 
 
 ### JavaScript Iterables
