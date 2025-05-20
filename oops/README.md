@@ -3,6 +3,17 @@
 ## 🔹 What is OOP?
 Object-Oriented Programming is a way to organize your code using objects, which group data (properties) and functions (methods) together.
 
+* A Class is like a blueprint or template for creating objects.
+* It defines properties (data) and methods (functions) that the objects created from this class will have.
+* Think of a class as a plan or design, like a blueprint for a house.
+
+
+### 📘 What is an Object?
+
+* An Object is an instance of a class.
+* It is a real thing created using the blueprint (class).
+* Each object has its own values for properties defined by the class.
+
 
 ### 🔸 1. What is an Object?
 ```bash
