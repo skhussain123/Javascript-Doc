@@ -102,10 +102,124 @@ std.introduce();  // Method call
 
 
 
-### 🔸 4. Four Pillars of OOP in JavaScript
-| Pillar            | Description                                           |
-| ----------------- | ----------------------------------------------------- |
-| **Encapsulation** | Hides details using classes and methods.              |
-| **Abstraction**   | Shows only necessary features.                        |
-| **Inheritance**   | One class can use another class's properties/methods. |
-| **Polymorphism**  | One method behaves differently in different classes.  |
+## 🔹 Types of Methods in JavaScript Classes
+
+### 1. Instance Methods:
+
+* These are regular methods defined inside the class.
+* They operate on individual instances (objects) of the class.
+* Can access instance properties via this.
+
+```bash
+class Person {
+  constructor(name) {
+    this.name = name;
+  }
+  
+  greet() {
+    console.log(`Hello, my name is ${this.name}`);
+  }
+}
+
+let p = new Person("Ali");
+p.greet();  // Hello, my name is Ali
+
+
+```
+
+### 2. Static Methods
+
+* Belong to the class itself, not instances.
+* Called using the class name, not the object.
+* Useful for utility or helper functions.
+
+```bash
+class MathHelper {
+  static square(x) {
+    return x * x;
+  }
+}
+
+console.log(MathHelper.square(5));  // 25
+
+```
+
+### 3. Getter Methods
+
+* Special methods that get the value of a property.
+* Used as properties but implemented as functions.
+* Defined with get keyword.
+
+```bash
+class Rectangle {
+  constructor(width, height) {
+    this.width = width;
+    this.height = height;
+  }
+  
+  get area() {
+    return this.width * this.height;
+  }
+}
+
+let rect = new Rectangle(5, 4);
+console.log(rect.area);  // 20 (called like a property, not function)
+
+```
+
+### 4. Setter Methods
+
+* Special methods that set the value of a property.
+* Defined with set keyword.
+* Used for validation or controlling how properties are set.
+
+```bash
+class Person {
+  set age(value) {
+    if (value < 0) {
+      console.log("Age can't be negative");
+    } else {
+      this._age = value;
+    }
+  }
+  
+  get age() {
+    return this._age;
+  }
+}
+
+let p = new Person();
+p.age = 25;
+console.log(p.age);  // 25
+p.age = -5;          // Age can't be negative
+
+```
+
+### 5. Async Methods
+
+* Methods that return a Promise.
+* Use async keyword and can use await inside.
+* Useful for asynchronous operations.
+
+```bash
+class DataFetcher {
+  async fetchData() {
+    let response = await fetch('https://api.example.com/data');
+    let data = await response.json();
+    return data;
+  }
+}
+
+let fetcher = new DataFetcher();
+fetcher.fetchData().then(data => console.log(data));
+```
+
+| Method Type | Description                       | Called On        | Syntax Example            |
+| ----------- | --------------------------------- | ---------------- | ------------------------- |
+| Instance    | Normal method for each object     | Object instances | `obj.method()`            |
+| Static      | Belongs to class, utility methods | Class itself     | `ClassName.method()`      |
+| Getter      | Access property like a variable   | Object instances | `obj.property`            |
+| Setter      | Set property with validation      | Object instances | `obj.property = value`    |
+| Async       | Handles asynchronous code         | Object instances | `await obj.asyncMethod()` |
+
+
