@@ -588,3 +588,135 @@ OUTPUT:
 </script>
 
 ```
+
+### WrapAll & WrapInner Method
+Here’s a clear and practical guide on .wrapAll() and .wrapInner() methods in jQuery — two powerful ways to manipulate HTML structure dynamically.
+
+#### .wrapAll() – Wrap ALL selected elements with ONE wrapper
+```bash
+$(selector).wrapAll(wrappingElement);
+```
+
+```bash
+<p class="item">Item 1</p>
+<p class="item">Item 2</p>
+
+<script>
+  $(".item").wrapAll("<div class='group'></div>");
+</script>
+
+```
+
+```bash
+<div class="group">
+  <p class="item">Item 1</p>
+  <p class="item">Item 2</p>
+</div>
+```
+
+#### 🌀 .wrapInner() – Wrap the CONTENT of each element
+```bash
+$(selector).wrapInner(wrappingElement);
+```
+
+```bash
+<p class="text">Hello</p>
+
+<script>
+  $(".text").wrapInner("<span class='highlight'></span>");
+</script>
+```
+
+```bash
+<p class="text"><span class="highlight">Hello</span></p>
+```
+
+
+| Method         | What it Wraps                               | Result Example                |
+| -------------- | ------------------------------------------- | ----------------------------- |
+| `.wrap()`      | Each element (individually)                 | Multiple wrappers             |
+| `.wrapAll()`   | All selected elements together (once)       | One common wrapper            |
+| `.wrapInner()` | Only the contents of each selected element  | Content gets wrapped          |
+| `.unwrap()`    | Removes the parent of each selected element | Content pulled out of wrapper |
+
+
+### Width & Height Methods
+
+#### 📏 .width() – Get or set the width of an element
+
+```bash
+let w = $("#box").width();
+console.log(w); // e.g., 200
+
+$("#box").width(300); // Set width to 300px
+
+```
+
+#### 📐 .height() – Get or set the height of an element
+
+```bash
+let h = $("#box").height();
+console.log(h); // e.g., 150
+
+$("#box").height(250); // Set height to 250px
+```
+
+#### 🔎 .innerWidth() / .innerHeight()
+
+```bash
+$("#box").innerWidth();  // width + padding
+
+```
+
+```bash
+$("#box").outerWidth();       // width + padding + border
+$("#box").outerWidth(true);   // width + padding + border + margin
+
+```
+
+
+| Method              | Includes                   |
+| ------------------- | -------------------------- |
+| `.width()`          | Content only               |
+| `.innerWidth()`     | Content + Padding          |
+| `.outerWidth()`     | Content + Padding + Border |
+| `.outerWidth(true)` | + Margin                   |
+
+
+### Position & Offset Method
+Here’s a simple and clear tutorial on .position() and .offset() methods in jQuery — used to get an element’s coordinates.
+
+#### 📍 .position() – Get element's position relative to its parent
+
+```bash
+<div id="parent" style="position: relative;">
+  <div id="child" style="position: absolute; top: 20px; left: 50px;">Box</div>
+</div>
+
+<script>
+  let pos = $("#child").position();
+  console.log(pos); // { top: 20, left: 50 }
+</script>
+
+```
+
+#### 🌍 .offset() – Get element's position relative to the document
+
+```bash
+<div id="box" style="margin-top: 100px; margin-left: 200px;">Box</div>
+
+<script>
+  let off = $("#box").offset();
+  console.log(off); // e.g., { top: 100, left: 200 }
+</script>
+
+```
+
+| Method           | Measures from   | Use Case                       |
+| ---------------- | --------------- | ------------------------------ |
+| `.position()`    | Offset parent   | Inside relative container      |
+| `.offset()`      | Document (page) | Absolute position on full page |
+| `.offset({...})` | Set position    | Move element on the page       |
+
+
+
