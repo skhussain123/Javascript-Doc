@@ -175,3 +175,97 @@ This is a combination of two or more types of inheritance (e.g., hierarchical + 
 Can be simulated using mixins and class extensions in JavaScript.
 
 Note: JavaScript doesn’t support true hybrid inheritance due to lack of direct multiple inheritance, but you can simulate it with careful design.
+
+
+
+## 2. Encapsulation
+Encapsulation is one of the core concepts of Object-Oriented Programming (OOP). It refers to hiding internal details of an object and only exposing a controlled interface. In simple terms, it's about bundling data and methods that operate on that data into a single unit (object), and restricting direct access to some of the object's components.
+
+* Protects data from being modified directly.
+* Makes code more secure, organized, and maintainable.
+* Allows you to control access via getters and setters.
+
+
+JavaScript supports encapsulation in several ways:
+
+### 🔹 1. Using Closures (Pre-ES6 way)
+```bash
+function Person(name) {
+  let _name = name; // private variable
+
+  this.getName = function () {
+    return _name;
+  };
+
+  this.setName = function (newName) {
+    if (newName.length > 0) {
+      _name = newName;
+    }
+  };
+}
+
+const p = new Person("Ali");
+console.log(p.getName()); // Ali
+p.setName("Zara");
+console.log(p.getName()); // Zara
+
+```
+
+### 🔹 2. Using ES6 class + Private Fields (#)
+```bash
+class Person {
+  #name; // private field
+
+  constructor(name) {
+    this.#name = name;
+  }
+
+  getName() {
+    return this.#name;
+  }
+
+  setName(newName) {
+    if (newName.length > 0) {
+      this.#name = newName;
+    }
+  }
+}
+
+const p = new Person("Ali");
+console.log(p.getName()); // Ali
+p.setName("Zara");
+console.log(p.getName()); // Zara
+// console.log(p.#name); // ❌ Error: private field
+
+```
+
+### 🔹 3. Using Getters and Setters
+```bash
+class Product {
+  #price;
+
+  constructor(price) {
+    this.#price = price;
+  }
+
+  get price() {
+    return this.#price;
+  }
+
+  set price(value) {
+    if (value > 0) {
+      this.#price = value;
+    } else {
+      console.log("Invalid price");
+    }
+  }
+}
+
+const item = new Product(100);
+console.log(item.price); // 100
+item.price = 200;
+console.log(item.price); // 200
+item.price = -50;        // Invalid price
+
+```
+

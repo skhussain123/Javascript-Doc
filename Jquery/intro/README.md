@@ -520,3 +520,71 @@ $("#btn-unwrap").click(function () {
   $(".item").unwrap();
 });
 ```
+
+### Wrap & UnWrap Method Tutorial 
+Here’s a simple and clear tutorial on the .wrap() and .unwrap() methods in jQuery — used to add or remove HTML wrappers around selected elements.
+
+####  .wrap() Method (Add a Wrapper)
+* Wraps each selected element in a single wrapper element.
+```bash
+$(selector).wrap(wrappingElement);
+
+```
+
+```bash
+<p class="text">Hello World</p>
+
+<script>
+  $(".text").wrap("<div class='wrapper'></div>");
+</script>
+
+```
+
+OUTPUT:
+```bash
+<div class="wrapper">
+  <p class="text">Hello World</p>
+</div>
+```
+
+#### .unwrap() Method (Remove a Wrapper)
+* Removes the parent element of the selected elements, but keeps the inner content.
+
+```bash
+$(selector).unwrap();
+
+```
+
+```bash
+<div class="wrapper">
+  <p class="text">Hello World</p>
+</div>
+
+<script>
+  $(".text").unwrap();
+</script>
+
+```
+
+OUTPUT:
+```bash
+<p class="text">Hello World</p>
+```
+
+####  (Wrap + Unwrap Toggle)
+```bash
+<p class="para">Click the buttons to wrap or unwrap me!</p>
+<button id="wrapBtn">Wrap</button>
+<button id="unwrapBtn">Unwrap</button>
+
+<script>
+  $("#wrapBtn").click(function () {
+    $(".para").wrap("<div class='box' style='border: 2px solid red; padding: 10px;'></div>");
+  });
+
+  $("#unwrapBtn").click(function () {
+    $(".para").unwrap();
+  });
+</script>
+
+```
