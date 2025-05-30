@@ -269,3 +269,177 @@ item.price = -50;        // Invalid price
 
 ```
 
+## 3. Polymorphism in JavaScript
+Polymorphism means “many forms.” In JavaScript, polymorphism allows objects to share the same method name but behave differently depending on their type or class.
+
+
+### Types of Polymorphism in JavaScript
+
+#### 1. Function Overriding (Runtime Polymorphism)
+* When a child class redefines a method of its parent class.
+* Most common type of polymorphism in JavaScript.
+
+```bash
+class Animal {
+  speak() {
+    console.log("The animal makes a sound");
+  }
+}
+
+class Dog extends Animal {
+  speak() {
+    console.log("The dog barks");
+  }
+}
+
+class Cat extends Animal {
+  speak() {
+    console.log("The cat meows");
+  }
+}
+
+const animals = [new Animal(), new Dog(), new Cat()];
+animals.forEach(animal => animal.speak());
+
+
+output:
+The animal makes a sound  
+The dog barks  
+The cat meows
+
+```
+
+#### 2. Function Overloading (Not native in JS)
+JavaScript doesn’t support function overloading directly like other languages (Java, C++), but you can mimic it using:
+
+```bash
+function greet(name, age) {
+  if (age === undefined) {
+    console.log(`Hello, ${name}`);
+  } else {
+    console.log(`Hello, ${name}. You are ${age} years old.`);
+  }
+}
+
+greet("Ali");
+greet("Ahmed", 25);
+
+output:
+Hello, Ali  
+Hello, Ahmed. You are 25 years old.
+
+
+```
+
+#### Why Use Polymorphism?
+* Cleaner code
+* Easier to scale
+* Enables inheritance and code reuse
+* Supports OOP principles
+
+
+#### Real-World Example
+```bash
+
+class Shape {
+  draw() {
+    console.log("Drawing a shape");
+  }
+}
+
+class Circle extends Shape {
+  draw() {
+    console.log("Drawing a circle");
+  }
+}
+
+class Rectangle extends Shape {
+  draw() {
+    console.log("Drawing a rectangle");
+  }
+}
+
+function render(shape) {
+  shape.draw(); // Polymorphic behavior
+}
+
+render(new Shape());
+render(new Circle());
+render(new Rectangle());
+
+```
+
+| Concept              | In JS? | Example Type             |
+| -------------------- | ------ | ------------------------ |
+| Function Overriding  | ✅ Yes  | Class inheritance        |
+| Function Overloading | ❌ No\* | Can be mimicked manually |
+
+
+## 4. Abstraction in JavaScript
+Abstraction means hiding the complex internal details and showing only the essential features to the user.
+
+#### Real-Life Example:
+
+* Jab aap car chala rahe ho, aap sirf steering, accelerator, brake dekhte ho.
+* Aapko andar ka engine kaise kaam karta hai — uski detail hide hoti hai.
+* That’s abstraction!
+
+JavaScript doesn’t have pure abstraction classes like Java/C++, but we can still implement abstraction using:
+
+* Classes + Methods
+* Encapsulation (using private properties)
+* Interfaces (mimicked using objects + functions)
+
+### Basic Abstraction Using Class
+```bash
+class Car {
+  constructor() {
+    this._speed = 0; // underscore means “private” by convention
+  }
+
+  accelerate() {
+    this._speed += 10;
+    console.log(`Accelerating... Current speed: ${this._speed}`);
+  }
+
+  brake() {
+    this._speed -= 5;
+    console.log(`Braking... Current speed: ${this._speed}`);
+  }
+}
+
+const car = new Car();
+car.accelerate();
+car.brake();
+
+```
+User doesn't know how speed is calculated internally — they just use accelerate() and brake().
+
+### Modern JS: Private Fields for Real Abstraction
+Since ES2022, JavaScript allows private fields using
+
+```bash
+class BankAccount {
+  #balance = 0;
+
+  deposit(amount) {
+    this.#balance += amount;
+  }
+
+  getBalance() {
+    return this.#balance;
+  }
+}
+
+const account = new BankAccount();
+account.deposit(1000);
+console.log(account.getBalance()); // ✅ 1000
+console.log(account.#balance); // ❌ Error: Private field
+
+```
+
+| Concept      | In JavaScript?                          | How to Use                        |
+| ------------ | --------------------------------------- | --------------------------------- |
+| Abstraction  | ✅ Yes                                   | Classes, private fields, methods  |
+| Hide details | ✅                                       | `#` fields, underscore convention |
+| User access  | ✅ Only what is exposed (public methods) |                                   |
