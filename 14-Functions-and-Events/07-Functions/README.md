@@ -57,6 +57,16 @@ setTimeout(function() {
 }, 1000);
 ```
 
+```bash
+let numbers = [1, 2, 3, 4];
+
+let doubled = numbers.map(function(num) {
+  return num * 2;
+});
+
+console.log(doubled); // Output: [2, 4, 6, 8]
+```
+
 ### **5. Immediately Invoked Function Expression (IIFE)**
 Use: A function that executes immediately after its definition.
 ```bash
