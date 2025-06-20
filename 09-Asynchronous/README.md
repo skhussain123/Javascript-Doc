@@ -41,23 +41,10 @@ function sayBye() {
 greetUser("Ahmed", sayBye);
 ```
 
-### Callback Hell
+### Callback Hell Example
 Jab aap ek function ke andar doosra function call karte ho, phir uske andar teesra, phir uske andar chautha...
 is tarah ka code bahut complex aur ganda ho jata hai — usi ko kehte hain Callback Hell.
-```bash
-loginUser("Ahmed", function(user) {
-  getUserProfile(user, function(profile) {
-    getUserPosts(profile, function(posts) {
-      getComments(posts, function(comments) {
-        console.log(comments);
-      });
-    });
-  });
-});
-```
-* Har function ke andar ek aur callback. Yeh structure "pyramid of doom" banata hai — samajhna aur maintain karna mushkil.
 
-#### Callback Hell Ka Solution:
 ```bash
 function getData(dataid, getNextData) {
   setTimeout(() => {
@@ -77,8 +64,51 @@ getData(1, () => {
 });
 
 ```
+* Har function ke andar ek aur callback. Yeh structure "pyramid of doom" banata hai — samajhna aur maintain karna mushkil.
 
+### Callback Hell Problems ka Solution: Promises
+Promise JavaScript ka ek object hota hai jo future me koi kaam hone ka wada karta hai.
+* Ye ya to kaam successfully complete karta hai (resolve)
+* ya fail ho jata hai (reject).
 
+**Promises State:**
+* Pending State
+* FulFill State
+* Reject State
+
+```bash
+let promise = new Promise(function(resolve, reject) {
+  // kaam karo yahan
+  let kaamHogaya = true;
+
+  if (kaamHogaya) {
+    resolve("Kaam hogaya!");
+  } else {
+    reject("Kaam fail hogaya!");
+  }
+});
+```
+#### Use Promise with .then() and .catch()
+```bash
+
+const getPromise = () => {
+  return new Promise((resolve, reject) => {
+    console.log("I am a promise");
+    // resolve("success")  ✅ Agar resolve karna ho
+    reject("network error");
+  });
+};
+
+let promise = getPromise();
+
+promise.then((res) => {
+  console.log("Promise fulfilled:", res);
+});
+
+promise.catch((err) => {
+  console.log("Promise rejected:", err);
+});
+```
 
 
 
