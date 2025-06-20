@@ -109,6 +109,50 @@ promise.catch((err) => {
   console.log("Promise rejected:", err);
 });
 ```
+* Jab Promise successfully complete (resolve) ho jata hai, tab .then() chalti hai. Ye success ka result handle karti hai.
+* Jab Promise fail ho jata hai (reject), tab .catch() chalti hai. Ye error ko handle karti hai.
+
+
+###  Promise Chaining
+```bash
+function asyncFunc1() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      console.log("sode detail 1");
+      resolve("success 1");
+    }, 4000);
+  });
+}
+
+function asyncFunc2() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      console.log("sode detail 2");
+      resolve("success 2");
+    }, 4000);
+  });
+}
+
+console.log("fetching details...");
+
+// Step 1: pehla kaam (promise 1)
+asyncFunc1().then((res1) => {
+  console.log("Response from func1:", res1);
+
+  console.log("fetching data2...");
+
+  // Step 2: doosra kaam (promise 2)
+  return asyncFunc2(); // 👈 yeh important hai chaining ke liye
+}).then((res2) => {
+  console.log("Response from func2:", res2);
+});
+
+
+```
+
+
+
+
 
 
 
