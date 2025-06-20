@@ -76,6 +76,8 @@ Promise JavaScript ka ek object hota hai jo future me koi kaam hone ka wada kart
 * FulFill State
 * Reject State
 
+![Alt Text](Group-3.jpg)
+
 ```bash
 let promise = new Promise(function(resolve, reject) {
   // kaam karo yahan
@@ -150,11 +152,63 @@ asyncFunc1().then((res1) => {
 
 ```
 
-
-
-
-
-
-
-### Async / Await
+### Async/Await version (Zyada clean aur easy to read or Promise Chaining se Better)
 async function hota hai jo promise return karta hai, aur await ka matlab hota hai "ruk jao jab tak kaam complete na ho jaye.
+await ko sirf async ke under he use kr sakty hain function ke bahir use nh kr sakty. 
+
+##### Basic Syntax:
+```bash
+async function runTasks() {
+  console.log("fetching details...");
+
+  const res1 = await asyncFunc1();
+  console.log("Response from func1:", res1);
+
+  console.log("fetching data2...");
+  const res2 = await asyncFunc2();
+  console.log("Response from func2:", res2);
+}
+
+runTasks();
+```
+
+##### Basic Api Calling with async Await
+```bash
+function api() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      console.log("Weather Data");
+      resolve(200);
+    }, 4000);
+  });
+}
+
+
+async function runTasks(){
+   await api(); // 1st baar "Weather Data" print hoga (after 4 seconds)
+   await api(); // 2nd baar "Weather Data" print hoga (after next 4 seconds)
+   await api(); // 3rd baar "Weather Data" print hoga (after next 4 seconds)
+}
+
+runTasks();
+```
+
+##### Other Example
+```bash
+function getData(dataid) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      console.log("Data", dataid);
+      resolve("success");
+    }, 2000);
+  });
+}
+
+async function getAllData() {
+  await getData(1); // 1st call
+  await getData(2); // 2nd call
+  await getData(3); // 3rd call
+}
+
+getAllData();
+```
